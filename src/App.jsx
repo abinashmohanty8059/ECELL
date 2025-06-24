@@ -8,6 +8,7 @@ import ProfileCard from "./pages/ProfileCard";
 import Navbar from "./pages/Navbar";
 import "./index.css";
 import About from "./pages/About";
+import ContactUs from "./pages/ContactUs";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
             <>
               <Hero />
               <About />
-              <Footer />
+             
             </>
           }
         />
@@ -29,7 +30,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LoginPopup />} />
         <Route path="/profilecard" element={<ProfileCard />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
+       <Footer />
     </Router>
   );
 }

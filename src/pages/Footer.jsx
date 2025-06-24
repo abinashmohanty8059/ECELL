@@ -1,10 +1,12 @@
 import React from 'react';
 import logo from '/KIIT logo white.png'; // Adjust the path as necessary
+import { Link } from 'react-router-dom';
+
 
 
 function Footer() {
   return (
-    <footer className="bg-[#1a1a2e] text-white py-12 px-4 sm:px-6 lg:px-8 font-inter">
+    <footer className="bg-black text-white py-12 px-4 sm:px-6 lg:px-8 font-inter">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* Column 1: Logo and Subscription */}
         {/* Adjusted alignment for mobile (center) and desktop (left) */}
@@ -85,7 +87,14 @@ function Footer() {
           </ul>
         </div>
       </div>
-
+      <div className="flex justify-end">
+      <Link
+      to="/contact"
+      className="text-white border border-blue-500 rounded-2xl px-6 py-2 hover:bg-blue-500 hover:text-black transition duration-300 "
+    >
+      Contact Us
+    </Link>
+</div>
       {/* Social Networks Section */}
       <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-700 flex flex-col sm:flex-col ">
         <p className="text-sm mb-4 sm:mb-0 text-center sm:text-left">Get Connected with us on social networks:</p>
