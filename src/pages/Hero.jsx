@@ -41,7 +41,7 @@ useEffect(() => {
               />
 
               {/* 3 Triangle SVGs with Hover Transition */}
-              <div className="flex items-end justify-center">
+              <div className="flex items-end justify-center mt-10">
                 {/* SVG 1 */}
                 <svg
                   viewBox="0 0 300 434"

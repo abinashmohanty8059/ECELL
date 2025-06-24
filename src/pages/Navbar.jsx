@@ -31,7 +31,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 z-50 w-full px-6 py-4 pt-10 text-white">
+      <nav className="fixed top-0 left-0 z-50 w-full px-6 py-4  text-white bg-black">
         <div className="flex justify-between items-center relative">
           {/* Hamburger (Mobile Only) */}
           <div className="md:hidden">
