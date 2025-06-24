@@ -9,7 +9,7 @@ const ContactUs = () => {
       <img
         src={mapBg}
         alt="Map background"
-        className="absolute inset-0 w-full h-full object-cover opacity-30 z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0"
       />
 
       {/* Contact Box */}
