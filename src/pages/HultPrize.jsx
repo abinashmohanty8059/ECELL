@@ -11,13 +11,12 @@ const HultPrizeCard = ({ onRegister }) => {
 
   return (
     <div
-      className="w-full max-w-[500px] min-w-[500px] h-[220px] 
-                 bg-neutral-200 rounded-lg shadow-lg overflow-hidden
-                 flex flex-row border border-neutral-300 hover:border-blue-500 
+      className="w-full bg-neutral-200 rounded-lg shadow-lg overflow-hidden
+                 flex flex-col sm:flex-row border border-neutral-300 hover:border-blue-500 
                  transition duration-300"
     >
       {/* Image Section */}
-      <div className="w-[250px] h-full overflow-hidden flex-shrink-0">
+      <div className="w-full sm:w-1/2 h-48 sm:h-auto overflow-hidden">
         <img
           src={event.image}
           alt={event.title}
@@ -26,7 +25,7 @@ const HultPrizeCard = ({ onRegister }) => {
       </div>
 
       {/* Content Section */}
-      <div className="p-4 sm:p-5 flex flex-col justify-between text-left w-full">
+      <div className="p-4 flex flex-col justify-between sm:w-1/2">
         <div>
           {event.subtitle && (
             <p className="text-[11px] text-gray-500 font-semibold uppercase tracking-wide">

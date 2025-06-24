@@ -12,40 +12,39 @@ const IdeathonCard = ({ onRegister }) => {
 
   return (
     <div
-      className="
-        w-full max-w-[250px] h-[300px] bg-neutral-200 rounded-lg shadow-lg overflow-hidden
-        flex flex-col border border-neutral-300 hover:border-blue-500 transition duration-300
-      "
+      className="w-full max-w-sm bg-neutral-200 rounded-lg shadow-lg overflow-hidden
+                 flex flex-col border border-neutral-300 hover:border-blue-500
+                 transition duration-300"
     >
       {/* Image */}
-      <div className="w-full h-[280px] overflow-hidden">
+      <div className="w-full h-48 sm:h-56 md:h-64 overflow-hidden">
         <img
           src={event.image}
           alt={event.title}
-          className="w-full h-full object-cover rounded-t-lg"
+          className="w-full h-full object-cover"
         />
       </div>
 
       {/* Content */}
-      <div className="p-3 flex flex-col justify-between items-center text-center h-full">
-        <div className="space-y-1">
-          {event.subtitle && (
-            <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wide">
-              {event.subtitle}
-            </p>
-          )}
-          <h3 className="font-extrabold text-lg text-neutral-800">
-            {event.mainHeadingText}
-          </h3>
-          {event.additionalSubtext && (
-            <p className="text-[10px] text-gray-600">{event.additionalSubtext}</p>
-          )}
-        </div>
+      <div className="p-4 flex flex-col items-center text-center space-y-2">
+        {event.subtitle && (
+          <p className="text-[11px] text-gray-500 font-semibold uppercase tracking-wide">
+            {event.subtitle}
+          </p>
+        )}
+        <h3 className="font-extrabold text-xl text-neutral-800">
+          {event.mainHeadingText}
+        </h3>
+        {event.additionalSubtext && (
+          <p className="text-[12px] text-gray-600">
+            {event.additionalSubtext}
+          </p>
+        )}
 
         <button
           onClick={() => onRegister(event.title)}
-          className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-1.5 rounded-full
-                     transition duration-200 uppercase text-xs tracking-wide shadow"
+          className="mt-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full
+                     transition duration-200 uppercase text-sm tracking-wide shadow"
         >
           Register
         </button>
