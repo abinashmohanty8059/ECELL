@@ -55,7 +55,7 @@ const Navbar = () => {
 
           {/* Right Tabs */}
           <div className="hidden md:flex flex-1 justify-end space-x-6 text-sm sm:text-base font-medium items-center">
-      <Link to="/" className="hover:text-blue-300 cursor-pointer">Events</Link>
+      <Link to="/event" className="hover:text-blue-300 cursor-pointer">Events</Link>
       <Link to="/Signup" className="hover:text-blue-300 cursor-pointer">Join Us</Link>
       <button
         onClick={() => setShowLogin(true)}
