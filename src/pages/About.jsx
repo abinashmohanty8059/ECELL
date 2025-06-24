@@ -1,14 +1,6 @@
 import React from 'react';
 
 const About = () => {
-  const bubbles = [
-    { top: '10%', left: '20%', title: 'I-Camp' },
-    { top: '25%', right: '15%', title: 'Ideathon' },
-    { top: '45%', left: '10%', title: 'Build School' },
-    { top: '65%', right: '20%', title: 'Hult Prize' },
-    { bottom: '10%', left: '35%', title: 'Growth Garage' },
-  ];
-
   return (
     <>
       {/* Desktop Background Container */}
@@ -18,24 +10,34 @@ const About = () => {
           backgroundImage: "url('/about us section bg.svg')",
         }}
       >
-        <AboutContent bubbles={bubbles} />
+        <AboutContent isMobile={false} />
       </div>
 
       {/* Mobile Background Container */}
       <div className="block md:hidden w-full bg-black">
-        <AboutContent bubbles={bubbles} />
+        <AboutContent isMobile={true} />
       </div>
     </>
   );
 };
 
-// Extracted reusable content
-const AboutContent = ({ bubbles }) => (
+// Reusable AboutContent
+const AboutContent = ({ isMobile }) => (
   <div className="w-full pt-32 min-h-[100vh] text-white px-6 relative">
     {/* Heading */}
     <h2 className="text-blue-400 text-4xl sm:text-5xl font-bold font-[Pixelify_Sans] text-center mb-8">
       About Us
     </h2>
+
+    {/* Logos on Mobile (moved above content) */}
+    {isMobile && (
+      <div className="w-full flex justify-center mb-6">
+        <div className="flex flex-row gap-8 items-center">
+          <img src="/KIIT logo white.png" alt="E-Cell" className="h-24 sm:h-28" />
+          <img src="/KIIT logo.png" alt="KIIT" className="h-24 sm:h-28 grayscale" />
+        </div>
+      </div>
+    )}
 
     {/* Main Content */}
     <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-center justify-between bg-black bg-opacity-70 p-6 rounded-lg relative">
@@ -54,29 +56,15 @@ const AboutContent = ({ bubbles }) => (
         </p>
       </div>
 
-      {/* Right - Logos & Bubbles */}
-      <div className="w-full flex justify-center relative">
-        <div className="flex flex-row gap-8 items-center">
-          <img src="/KIIT logo white.png" alt="E-Cell" className="h-24 sm:h-28" />
-          <img src="/KIIT logo.png" alt="KIIT" className="h-24 sm:h-28 grayscale" />
-        </div>
-
-        {/* Floating Bubbles */}
-        {bubbles.map((bubble, index) => (
-          <div
-            key={index}
-            className={`absolute ${bubble.top || ''} ${bubble.bottom || ''} ${bubble.left || ''} ${bubble.right || ''}
-              w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-500/40 backdrop-blur-sm shadow-md
-              transition-all duration-500 hover:scale-150 group cursor-pointer overflow-hidden`}
-          >
-            <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="text-xs sm:text-sm font-semibold bg-black/80 px-2 py-1 rounded text-white text-center">
-                {bubble.title}
-              </div>
-            </div>
+      {/* Right - Logos (only for desktop) */}
+      {!isMobile && (
+        <div className="w-full flex justify-center relative">
+          <div className="flex flex-row gap-8 items-center">
+            <img src="/KIIT logo white.png" alt="E-Cell" className="h-24 sm:h-28" />
+            <img src="/KIIT logo.png" alt="KIIT" className="h-24 sm:h-28 grayscale" />
           </div>
-        ))}
-      </div>
+        </div>
+      )}
     </div>
 
     {/* Marquee Section */}
