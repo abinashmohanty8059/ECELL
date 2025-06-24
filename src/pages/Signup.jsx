@@ -23,7 +23,7 @@ const SignUp = () => {
       <div className="w-full max-w-6xl bg-[#0e0e0e] text-white rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden">
         {/* Left Side - Form */}
         <div className="w-full md:w-1/2 p-8 sm:p-12">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-6">Create Your Account</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-6 mt-6">Create Your Account</h2>
 
           {/* Google Sign Up */}
           <button className="w-full border border-gray-400 rounded-md py-2 flex items-center justify-center gap-3 text-sm mb-4 hover:border-white transition">
