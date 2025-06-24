@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 z-50 bg-black text-white w-full px-6 py-4 pt-10">
+      <nav className="fixed top-0 left-0 z-50  text-white w-full px-6 py-4 pt-10">
         <div className="flex justify-between items-center">
           {/* Hamburger (Mobile Only) */}
           <div className="md:hidden">
