@@ -44,7 +44,46 @@ const About = () => {
 
 
       </div>
+   <div className="relative w-full overflow-hidden bg-[#252525] border-y border-neutral-600 py-2">
+  <div className="flex animate-marquee whitespace-nowrap text-sm font-semibold tracking-widest">
+    {/* First set */}
+    {Array.from({ length: 20 }).map((_, i) => (
+      <span
+        key={`first-${i}`}
+        className={`px-4 ${i % 2 === 0 ? 'text-white' : 'text-blue-400'}`}
+      >
+        KIIT ECELL
+      </span>
+    ))}
+    {/* Duplicate for seamless loop */}
+    {Array.from({ length: 20 }).map((_, i) => (
+      <span
+        key={`second-${i}`}
+        className={`px-4 ${i % 2 === 0 ? 'text-white' : 'text-blue-400'}`}
+        aria-hidden="true"
+      >
+        KIIT ECELL
+      </span>
+    ))}
+  </div>
+
+  <style>
+    {`
+      @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+      }
+
+      .animate-marquee {
+        animation: marquee 20s linear infinite;
+      }
+    `}
+  </style>
+</div>
+
+
     </div>
+    
   );
 };
 
