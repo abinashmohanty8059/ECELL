@@ -12,9 +12,7 @@ const About = () => {
       <h2 className="text-blue-400 text-4xl sm:text-5xl font-bold font-[Pixelify_Sans] text-center mb-8">
         About Us
       </h2>
-       <h3 className="text-white text-center text-xl sm:text-2xl md:text-3xl font-semibold font-serif mt-4">
-  We’re an organization, <span className="font-extrabold tracking-wide">“NOT A SOCIETY”</span>
-</h3>
+       
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-center justify-between bg-black bg-opacity-70 p-6 rounded-lg">

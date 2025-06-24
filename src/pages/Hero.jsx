@@ -26,7 +26,7 @@ const Hero = () => {
   <img
     src="/KIIT logo white.png"
     alt="Stacked Overlay"
-    className="absolute top-[70%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] sm:w-[400px] md:w-[450px] z-40 opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+    className="absolute top-[80%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[360px] sm:w-[400px] md:w-[450px] z-40 opacity-100 group-hover:opacity-0 transition-opacity duration-300"
   />
 </div>
 
@@ -104,7 +104,7 @@ const Hero = () => {
           </div>
 
           {/* Tagline */}
-          <p className="  text-base sm:text-xl md:text-2xl lg:text-3xl text-blue-300 font-bold font-poppins  px-4 justify-start">
+          <p className="  text-base sm:text-xl md:text-2xl lg:text-3xl text-blue-300 font-bold font-poppins  px-4 justify-start pt-10">
             For Entrepreneurs <span className="hidden sm:inline">||</span> By Entrepreneurs
           </p>
         </main>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const departments = [
   "Marketing",
   "PCR",
-  "HR", // Changed to HR for example, assuming distinct departments
+  "PCR", // Changed to HR for example, assuming distinct departments
   "R&D",
   "Tech",
 ];
