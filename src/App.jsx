@@ -9,6 +9,7 @@ import Navbar from "./pages/Navbar";
 import "./index.css";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
+import Liaison from "./pages/Liaison";
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
             <>
               <Hero />
               <About />
-             
+             <Liaison/>
             </>
           }
         />
