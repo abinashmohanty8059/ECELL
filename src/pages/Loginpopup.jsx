@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaGithub, FaGoogle, FaArrowRight, FaTwitter } from 'react-icons/fa';
-import { Link } from 'react-router-dom'; // ✅ Added useNavigate
+import { Link } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,6 +18,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 const LoginPopup = ({ onClose }) => {
   const popupRef = useRef(null);
@@ -26,7 +28,19 @@ const LoginPopup = ({ onClose }) => {
   const [loading, setLoading] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
 
-  
+  const recordLoginSession = async (user) => {
+    try {
+      await addDoc(collection(db, "userSessions"), {
+        userId: user.uid,
+        email: user.email,
+        loginTime: serverTimestamp(),
+        loginMethod: user.providerData?.[0]?.providerId || 'email',
+        userAgent: navigator.userAgent
+      });
+    } catch (e) {
+      console.error("Error recording session: ", e);
+    }
+  };
 
   const handleEmailLogin = async () => {
     if (!email.endsWith('@kiit.ac.in')) {
@@ -38,10 +52,9 @@ const LoginPopup = ({ onClose }) => {
     setError('');
     
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      // Show success message
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      await recordLoginSession(userCredential.user);
       setLoginSuccess(true);
-      // Close popup after 7 seconds
       setTimeout(() => {
         onClose();
       }, 7000);
@@ -57,16 +70,13 @@ const LoginPopup = ({ onClose }) => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       
-      // Check if email ends with @kiit.ac.in
       if (user.email && user.email.endsWith('@kiit.ac.in')) {
-        // Show success message
+        await recordLoginSession(user);
         setLoginSuccess(true);
-        // Close popup after 7 seconds
         setTimeout(() => {
           onClose();
         }, 7000);
       } else {
-        // Not a KIIT email - sign out the user
         await auth.signOut();
         setError('Please use your KIIT email (@kiit.ac.in) to login.');
       }
