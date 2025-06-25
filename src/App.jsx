@@ -16,6 +16,7 @@ import Liaison from "./pages/Liaison";
 import Events from "./pages/Event";
 import ConfirmationPopup from "./pages/ConfirmationPopup";
 import RegistrationSuccess from "./pages/RegisterSuccess";
+import NotFoundPage from "./pages/NotFoundPage";
 import "./index.css";
 
 // Firebase configuration
@@ -100,6 +101,11 @@ function App() {
             path="/event"
             element={<Events onRegisterButtonClick={handleEventRegisterClick} />}
           />
+           <Route
+            path="/error"
+           element={<NotFoundPage />}
+            />
+          
         </Routes>
 
         <Footer />

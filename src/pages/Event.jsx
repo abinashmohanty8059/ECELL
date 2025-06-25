@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRightCircle } from 'lucide-react';
 import ConfirmationPopup from './ConfirmationPopup';
 import RegisterSuccess from './RegisterSuccess';
+import { useNavigate } from 'react-router-dom'; 
 
 const events = [
   {
@@ -48,10 +49,15 @@ const EventsGrid = () => {
   const [popupVisible, setPopupVisible] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState('');
   const [detailsVisible, setDetailsVisible] = useState(false);
-
+   
+  const navigate = useNavigate();
   const handleRegister = (eventName) => {
+     if (eventName === 'Ideathon') {
+      navigate('/error'); // ⬅️ Redirect to /error
+    } else {
     setSelectedEvent(eventName);
     setPopupVisible(true);
+    }
   };
 
   const handleClosePopup = () => setPopupVisible(false);
