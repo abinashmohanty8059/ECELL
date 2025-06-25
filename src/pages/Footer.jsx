@@ -48,11 +48,11 @@ function Footer() {
         <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4 text-blue-300">OUR INITIATIVES</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-blue-300 text-sm">I-Camp</a></li>
-            <li><a href="#" className="hover:text-blue-300 text-sm">BuildSchool</a></li>
-            <li><a href="#" className="hover:text-blue-300 text-sm">Hult Prize</a></li>
-            <li><a href="#" className="hover:text-blue-300 text-sm">Ideathon</a></li>
-            <li><a href="#" className="hover:text-blue-300 text-sm">Growth Garage</a></li>
+            <li><a href="/event" className="hover:text-blue-300 text-sm">I-Camp</a></li>
+            <li><a href="/event" className="hover:text-blue-300 text-sm">BuildSchool</a></li>
+            <li><a href="/event" className="hover:text-blue-300 text-sm">Hult Prize</a></li>
+            <li><a href="/event" className="hover:text-blue-300 text-sm">Ideathon</a></li>
+            <li><a href="/event" className="hover:text-blue-300 text-sm">Growth Garage</a></li>
           </ul>
         </div>
 
@@ -60,10 +60,10 @@ function Footer() {
         <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4 text-blue-300">USEFUL LINKS</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-blue-300 text-sm">Home</a></li>
-            <li><a href="#" className="hover:text-blue-300 text-sm">About Us</a></li>
+            <li><a href="/" className="hover:text-blue-300 text-sm">Home</a></li>
+            <li><a href="/about" className="hover:text-blue-300 text-sm">About Us</a></li>
             <li><a href="#" className="hover:text-blue-300 text-sm">Gallery</a></li>
-            <li><a href="#" className="hover:text-blue-300 text-sm">Contact Us</a></li>
+            <li><a href="/contact" className="hover:text-blue-300 text-sm">Contact Us</a></li>
           </ul>
         </div>
         <div className=" md:hidden flex justify-center mb-6">
