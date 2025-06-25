@@ -108,7 +108,7 @@ const Navbar = () => {
           </div>
 
           {/* Profile Button (Mobile Only) - modified profile icon */}
-          <div className="md:hidden absolute right-0 top-0 pt-10 pr-6">
+          <div className="md:hidden absolute right-0 top-0  pr-6">
             <button
               onClick={handleProfileClick}
               className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black overflow-hidden"
