@@ -39,7 +39,7 @@ const LoginPopup = ({ onClose }) => {
         <input
           type="email"
           placeholder="E-mail (use KIIT e-mail ID)"
-          className="w-full px-4 py-3 rounded-md bg-[#2b3e45] text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-3 rounded-md bg-[#2b3e45] text-sm focus:outline-none "
         />
 
         {/* Password */}
