@@ -1,13 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { FaGithub, FaGoogle, FaArrowRight, FaTwitter } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom'; // ✅ Added useNavigate
+import { Link } from 'react-router-dom'; // ✅ Added useNavigate
 
 const LoginPopup = ({ onClose }) => {
   const popupRef = useRef(null);
-  const navigate = useNavigate(); // ✅ Initialize navigate
-  const handleClose = () => {
-    navigate('/'); // or navigate(-1) to go back
-  };
+  
 
   // Close on outside click
   useEffect(() => {
@@ -53,7 +50,7 @@ const LoginPopup = ({ onClose }) => {
             className="w-full bg-transparent focus:outline-none text-sm"
           />
          <button
-  onClick={handleClose}
+  onClick={onClose}
   className="p-2 rounded-full border-2 transition"
 >
   <FaArrowRight className="text-white" />
