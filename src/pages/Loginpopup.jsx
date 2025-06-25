@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaGithub, FaGoogle, FaArrowRight, FaTwitter } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -28,6 +28,20 @@ const LoginPopup = ({ onClose }) => {
   const [loading, setLoading] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
 
+  const navigate = useNavigate(); // ✅ for redirect
+
+  // ✅ Redirect after login success
+  useEffect(() => {
+    if (loginSuccess) {
+      const timer = setTimeout(() => {
+        navigate('/');
+        onClose();
+      }, 3000); // Redirect after 3 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [loginSuccess, navigate, onClose]);
+
   const recordLoginSession = async (user) => {
     try {
       await addDoc(collection(db, "userSessions"), {
@@ -50,7 +64,7 @@ const LoginPopup = ({ onClose }) => {
 
     setLoading(true);
     setError('');
-    
+
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       await recordLoginSession(userCredential.user);
@@ -69,7 +83,7 @@ const LoginPopup = ({ onClose }) => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      
+
       if (user.email && user.email.endsWith('@kiit.ac.in')) {
         await recordLoginSession(user);
         setLoginSuccess(true);

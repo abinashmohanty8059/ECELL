@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FaUserEdit, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import { MdSettings, MdEdit } from 'react-icons/md';
 import { BsPerson } from 'react-icons/bs';
@@ -30,7 +30,6 @@ const ProfileCard = () => {
       if (currentUser) {
         setUser(currentUser);
       } else {
-        // If not logged in, redirect to login
         navigate('/login');
       }
     });
@@ -47,19 +46,21 @@ const ProfileCard = () => {
     }
   };
 
-  // If user data is not loaded yet
   if (!user) {
-    return <div className="max-w-sm mx-auto  bg-[#1e2a32] text-white rounded-xl shadow-lg p-6 flex flex-col items-center space-y-4">Loading...</div>;
+    return (
+      <div className="max-w-sm mx-auto bg-[#1e2a32] text-white rounded-xl shadow-lg p-6 flex flex-col items-center space-y-4">
+        Loading...
+      </div>
+    );
   }
 
   return (
     <div className="max-w-sm mx-auto mt-10 bg-[#1e2a32] text-white rounded-xl shadow-lg p-16 flex flex-col items-center space-y-4">
-      {/* Avatar Placeholder */}
       <div className="relative">
         {user.photoURL ? (
-          <img 
-            src={user.photoURL} 
-            alt="Profile" 
+          <img
+            src={user.photoURL}
+            alt="Profile"
             className="w-24 h-24 rounded-full object-cover"
           />
         ) : (
@@ -72,13 +73,11 @@ const ProfileCard = () => {
         </button>
       </div>
 
-      {/* Name and Email */}
       <div className="text-center">
         <h2 className="text-xl font-semibold">{user.displayName || 'User'}</h2>
         <p className="text-sm text-gray-300">{user.email}</p>
       </div>
 
-      {/* Options */}
       <div className="w-full flex flex-col space-y-3 text-left px-6">
         <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-400">
           <BsPerson />
@@ -92,7 +91,7 @@ const ProfileCard = () => {
           <MdSettings />
           <span>Settings</span>
         </div>
-        <div 
+        <div
           className="flex items-center space-x-2 text-red-500 cursor-pointer hover:underline"
           onClick={handleSignOut}
         >
@@ -104,4 +103,32 @@ const ProfileCard = () => {
   );
 };
 
-export default ProfileCard;
+const ProfileCardWrapper = ({ onClose }) => {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (cardRef.current && !cardRef.current.contains(e.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div ref={cardRef}>
+        <ProfileCard />
+      </div>
+    </div>
+  );
+};
+
+export default ProfileCardWrapper;

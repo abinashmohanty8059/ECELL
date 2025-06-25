@@ -90,7 +90,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route 
             path="/login" 
-            element={user ? <Navigate to="/profile" /> : <LoginPopup />} 
+            element={ <LoginPopup />} 
           />
           <Route 
             path="/profile" 
