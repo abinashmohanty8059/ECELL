@@ -58,19 +58,19 @@ const AboutContent = ({ isMobile }) => (
     {/* V-structured Event Bubbles */}
     <div className="flex flex-col items-center gap-4">
       {/* Top */}
-      <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full">I-Camp</div>
+      <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full font-[Pixelify_Sans]">I-Camp</div>
 
       {/* Middle Row */}
       <div className="flex gap-6">
-        <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full">Ideathon</div>
+        <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full font-[Pixelify_Sans]">Ideathon</div>
         <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full">Build School</div>
       </div>
 
       {/* Bottom Row */}
       <div className="flex gap-4">
-        <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full">Growth Garage</div>
-        <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full">Hult Prize</div>
-        <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full">Skill Sprint</div>
+        <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full font-[Pixelify_Sans]">Growth Garage</div>
+        <div className="bg-gray-700 text-white text-sm px-4 py-2 rounded-full font-[Pixelify_Sans]">Hult Prize</div>
+        
       </div>
     </div>
   </>
