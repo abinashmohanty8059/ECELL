@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaGithub, FaGoogle, FaArrowRight, FaTwitter } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom'; // ✅ Added useNavigate
+import { Link } from 'react-router-dom'; // ✅ Added useNavigate
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 
@@ -20,16 +20,13 @@ const auth = getAuth(app);
 
 const LoginPopup = ({ onClose }) => {
   const popupRef = useRef(null);
-  const navigate = useNavigate(); // ✅ Initialize navigate
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
 
-  const handleClose = () => {
-    navigate('/'); // or navigate(-1) to go back
-  };
+  
 
   const handleEmailLogin = async () => {
     if (!email.endsWith('@kiit.ac.in')) {

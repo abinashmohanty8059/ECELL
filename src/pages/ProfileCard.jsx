@@ -49,11 +49,11 @@ const ProfileCard = () => {
 
   // If user data is not loaded yet
   if (!user) {
-    return <div className="max-w-sm mx-auto mt-10 bg-[#1e2a32] text-white rounded-xl shadow-lg p-6 flex flex-col items-center space-y-4">Loading...</div>;
+    return <div className="max-w-sm mx-auto  bg-[#1e2a32] text-white rounded-xl shadow-lg p-6 flex flex-col items-center space-y-4">Loading...</div>;
   }
 
   return (
-    <div className="max-w-sm mx-auto mt-10 bg-[#1e2a32] text-white rounded-xl shadow-lg p-6 flex flex-col items-center space-y-4">
+    <div className="max-w-sm mx-auto mt-10 bg-[#1e2a32] text-white rounded-xl shadow-lg p-16 flex flex-col items-center space-y-4">
       {/* Avatar Placeholder */}
       <div className="relative">
         {user.photoURL ? (
