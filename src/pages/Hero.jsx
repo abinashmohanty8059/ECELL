@@ -136,7 +136,7 @@ useEffect(() => {
           <img
             src="/Invisible triangle.svg"
             alt="Triangle"
-            className="absolute top-1/2 left-1/2 w-60 h-36 -translate-x-1/2 -translate-y-1/2 z-10"
+            className="absolute top-1/2 left-1/2 w-60 h-36 -translate-x-1/2 -translate-y-1/2"
           />
 
           {/* KIIT Logo */}
@@ -146,7 +146,7 @@ useEffect(() => {
       <img
         src="/KIIT logo white.png"
         alt="KIIT Logo"
-        className="w-60 h-36 transition-opacity duration-700 ease-in-out opacity-100"
+        className="absolute top-[55%] left-[55%] w-60 h-36 -translate-x-1/2 -translate-y-1/2 z-10"
       />
     ) : (
       // Show 3 Triangles in a row
