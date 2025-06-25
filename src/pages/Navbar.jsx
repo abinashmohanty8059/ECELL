@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import Login from "./Loginpopup";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { User } from "lucide-react";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,22 +58,24 @@ const Navbar = () => {
           <div className="hidden md:flex flex-1 justify-end space-x-6 text-sm sm:text-base font-medium items-center">
             <Link to="/event" className="hover:text-blue-300">Events</Link>
             <Link to="/Signup" className="hover:text-blue-300">Join Us</Link>
-            <button
-              onClick={() => setShowLogin(true)}
-              className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black font-semibold"
-            >
-              U
-            </button>
+           <button
+  onClick={() => setShowLogin(true)}
+  className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black"
+>
+  <User size={18} />
+</button>
+
           </div>
 
           {/* Profile Button (Mobile Only, top-right absolute) */}
           <div className="md:hidden absolute right-0 top-0 pt-10 pr-6">
-            <button
-              onClick={() => setShowLogin(true)}
-              className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black font-semibold"
-            >
-              U
-            </button>
+           <button
+  onClick={() => setShowLogin(true)}
+  className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black"
+>
+  <User size={18} />
+</button>
+
           </div>
         </div>
 
