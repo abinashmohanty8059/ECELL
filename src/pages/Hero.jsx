@@ -215,7 +215,7 @@ const TriangleCarousel = () => {
       setCurrent((prev) => (prev + 1) % titles.length);
     }, 2000); // Change every 2s
     return () => clearInterval(interval);
-  }, []);
+  }, [titles.length]);
 
   return (
     <div>
