@@ -118,7 +118,7 @@ useEffect(() => {
         </main>
 </div>
       {/* Mobile Layout */}
-      <div className="md:hidden relative flex flex-col items-center justify-center pt-20 pb-10 px-4 text-center min-h-screen bg-black">
+      <div className="md:hidden relative flex flex-col items-center justify-center px-4 text-center min-h-screen bg-black">
         {/* Wrap all mobile elements in a fragment to avoid adjacent JSX error */}
         
         {/* Title */}
@@ -129,9 +129,9 @@ useEffect(() => {
         />
 
         {/* Heading (z-10 ensures it’s above the image) */}
-        <h1 className="text-white text-2xl font-semibold mb-6 z-10">KIIT E-CELL</h1>
+        <h1 className="text-white text-2xl font-semibold z-10">KIIT E-CELL</h1>
         
-     <div className="relative w-60 h-36 flex items-center justify-center z-10 mt-80">
+     <div className="relative w-60 h-36 flex items-center justify-center z-10 mt-100">
   {/* Invisible Triangle Background */}
   <img
     src="/Invisible triangle.svg"
