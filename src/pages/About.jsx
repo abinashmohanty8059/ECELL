@@ -98,8 +98,8 @@ const AboutContent = ({ isMobile }) => (
      {!isMobile && (
   <div className="w-full relative px-12">
     {/* Logos aligned right */}
-    <div className="flex justify-end pr-[20%] relative z-10">
-      <div className="flex flex-row gap-8 items-center">
+    <div className="flex  pr-[20%] relative z-10">
+      <div className="flex flex-row gap-2 items-center">
         <img src="/KIIT logo white.png" alt="E-Cell" className="h-24 sm:h-28" />
         <img src="/KIIT logo.png" alt="KIIT" className="h-24 sm:h-28 grayscale" />
       </div>
