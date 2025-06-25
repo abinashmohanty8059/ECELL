@@ -131,16 +131,16 @@ useEffect(() => {
         {/* Heading (z-10 ensures it’s above the image) */}
         <h1 className="text-white text-2xl font-semibold mb-6 z-10">KIIT E-CELL</h1>
         
-        <div className="relative w-full max-w-xs h-60 flex items-center justify-center z-10 pt-72">
-          {/* Triangle SVG */}
-          <img
-            src="/Invisible triangle.svg"
-            alt="Triangle"
-            className="absolute top-1/2 left-1/2 w-60 h-36 -translate-x-1/2 -translate-y-1/2"
-          />
+     <div className="relative w-60 h-36 flex items-center justify-center z-10 mt-80">
+  {/* Invisible Triangle Background */}
+  <img
+    src="/Invisible triangle.svg"
+    alt="Triangle"
+    className="absolute inset-0 w-full h-full object-contain z-10"
+  />
 
           {/* KIIT Logo */}
-           <div className="relative w-full max-w-xs h-60 flex items-center justify-center z-10 pt-5">
+           <div className="relative w-full max-w-xs h-60 flex items-center justify-center z-20 pt-5">
     {isLogoVisible ? (
       // Show KIIT Logo
       <img
