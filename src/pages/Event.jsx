@@ -82,8 +82,8 @@ const EventsGrid = () => {
       className={`
         rounded-2xl p-4 flex flex-col justify-between items-start
         ${event.bg} ${event.colSpan}
-        opacity-60 group-hover:opacity-50 hover:!opacity-100
-        transition duration-300
+        md:opacity-60 md:hover:opacity-100
+  transition duration-300
       `}
     >
       <img
