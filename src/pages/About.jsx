@@ -108,40 +108,41 @@ const AboutContent = ({ isMobile }) => (
     {/* Positioned Bubbles */}
     {/* 1 */}
 {/* 1 - I-Camp */}
-<div className="absolute top-[-100px] right-[40%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out hover:rounded-xl hover:w-32 flex items-center justify-center overflow-hidden">
+<div className=" group">
+<div className="absolute top-[-160px] right-[40%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out group-hover:rounded-xl group-hover:w-40 flex items-center justify-center overflow-hidden">
   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
     I-Camp
   </span>
 </div>
 
 {/* 2 - Ideathon */}
-<div className="absolute top-[-65px] right-[12%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out hover:rounded-xl hover:w-36 flex items-center justify-center overflow-hidden">
+<div className="absolute top-[-90px] right-[12%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out group-hover:rounded-xl group-hover:w-40 flex items-center justify-center overflow-hidden">
   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
     Ideathon
   </span>
 </div>
 
 {/* 3 - Build School */}
-<div className="absolute top-[10px] right-[0%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out hover:rounded-xl hover:w-40 flex items-center justify-center overflow-hidden">
+<div className="absolute top-[5px] right-[0%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out group-hover:rounded-xl group-hover:w-40 flex items-center justify-center overflow-hidden">
   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
     Build School
   </span>
 </div>
 
 {/* 4 - Hult Prize */}
-<div className="absolute top-[100px] right-[10%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out hover:rounded-xl hover:w-36 flex items-center justify-center overflow-hidden">
+<div className="absolute top-[100px] right-[12%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out group-hover:rounded-xl group-hover:w-40 flex items-center justify-center overflow-hidden">
   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
     Hult Prize
   </span>
 </div>
 
 {/* 5 - Growth Garage */}
-<div className="absolute top-[200px] right-[36%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out hover:rounded-xl hover:w-44 flex items-center justify-center overflow-hidden">
+<div className="absolute top-[200px] right-[40%] group bg-gray-700 text-white text-sm w-10 h-10 rounded-full transition-all duration-300 ease-in-out group-hover:rounded-xl group-hover:w-40 flex items-center justify-center overflow-hidden">
   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
     Growth Garage
   </span>
 </div>
-
+</div>
     
   </div>
 )}
