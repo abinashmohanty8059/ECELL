@@ -80,7 +80,10 @@ const LoginPopup = ({ onClose }) => {
         {/* Bottom Link */}
         <p className="text-sm text-center text-gray-400">
           Don’t have an account?{' '}
-          <Link to="/Signup" onClick={onClose}>
+          <Link to="/Signup"  onClick={() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    onClose(); // call your close function
+  }}>
             <span className="text-white font-semibold cursor-pointer hover:underline">
               Create Account
             </span>
