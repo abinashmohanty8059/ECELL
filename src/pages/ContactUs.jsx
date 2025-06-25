@@ -72,7 +72,7 @@ const ContactUs = () => {
 
             <button
               type="submit"
-              className="px-6 py-2 bg-white text-black font-semibold rounded hover:bg-gray-200 transition"
+              className="px-6 py-2 bg-white text-black font-semibold rounded-br-2xl hover:bg-gray-200 transition"
             >
               SEND
             </button>

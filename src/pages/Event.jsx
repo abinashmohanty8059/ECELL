@@ -1,64 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRightCircle } from 'lucide-react';
+import ConfirmationPopup from './ConfirmationPopup';
+import RegisterSuccess from './RegisterSuccess';
 
 const events = [
   {
     name: 'Build School',
     image: '/BuildSchool.png',
     bg: 'bg-purple-600',
-    colSpan: 'col-span-2 sm:col-span-1 sm:row-span-2', 
-    imageHeight: 280,
-    imageWidth: '100%',
+    colSpan:'col-span-2 sm:col-span-1 sm:row-span-2'
+
   },
   {
     name: 'Skill Sprint',
     image: '/SkillSprint.png',
     bg: 'bg-blue-300',
-    colSpan: 'col-span-2',
-    imageHeight: 180,
-    imageWidth: '100%',
+    colSpan: 'col-span-2 sm:col-span-2',
   },
   {
     name: 'I-Camp',
     image: '/Icamp.png',
     bg: 'bg-blue-500',
-    colSpan: 'col-span-1',
-    imageHeight: 160,
-    imageWidth: '100%',
+    colSpan: 'col-span-2 sm:col-span-1',
   },
   {
     name: 'Growth Garage',
-    image: '/GrowthGarage.png',
-    bg: 'bg-blue-400',
-    colSpan: 'col-span-1',
-    imageHeight: 140,
-    imageWidth: '100%',
+  image: '/GrowthGarage.png',
+  bg: 'bg-blue-400',
+  colSpan: 'col-span-2 sm:col-span-1',
+  className: 'h-[320px] sm:h-[220px]', 
   },
   {
     name: 'Ideathon',
     image: '/Ideathon.png',
     bg: 'bg-blue-700',
-    colSpan: 'col-span-1',
-    imageHeight: 160,
-    imageWidth: '100%',
+    colSpan: 'col-span-2 sm:col-span-1',
   },
   {
-    name: 'Hult Prize',
-    image: '/HultPrize.png',
-    bg: 'bg-purple-600',
-    colSpan: 'col-span-1',
-    imageHeight: 200,
-    imageWidth: '100%',
+     name: 'Hult Prize',
+  image: '/HultPrize.png',
+  bg: 'bg-purple-600',
+  colSpan: 'col-span-2 sm:col-span-1',
   },
 ];
 
 const EventsGrid = () => {
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState('');
+  const [detailsVisible, setDetailsVisible] = useState(false);
+
+  const handleRegister = (eventName) => {
+    setSelectedEvent(eventName);
+    setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => setPopupVisible(false);
+
+  const handleConfirmYes = () => {
+    setPopupVisible(false);
+    setDetailsVisible(true);
+  };
+
+  const handleCloseDetails = () => setDetailsVisible(false);
+
   return (
-    <div className="bg-black py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-white text-4xl font-bold text-center mb-12">
-          Our Prestigious Events
-        </h2>
+    <section className="bg-black py-16 text-white min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-center mb-12">Our Prestigious Events</h2>
 
         <div
           className="
@@ -66,33 +74,48 @@ const EventsGrid = () => {
             grid-cols-2 
             sm:grid-cols-4 
             auto-rows-[minmax(180px,auto)] 
-            gap-4 
-            text-white
-          "
+            gap-4"
         >
           {events.map((event, index) => (
             <div
               key={index}
-              className={`rounded-2xl p-4 flex flex-col justify-between ${event.bg} ${event.colSpan}`}
+              className={`rounded-2xl p-4 flex flex-col justify-between items-start ${event.bg} ${event.colSpan}`}
             >
               <img
                 src={event.image}
                 alt={event.name}
-                className="rounded-xl object-contain mb-4"
-                style={{
-                  height: `${event.imageHeight}px`,
-                  width: event.imageWidth,
-                }}
+                className="rounded-xl w-full h-auto max-h-[220px] object-contain mb-4"
               />
-              <div className="flex justify-between items-center mt-auto">
+              <div className="flex justify-between items-center w-full mt-auto">
                 <h3 className="font-bold text-lg sm:text-xl">{event.name}</h3>
-                <ArrowRightCircle className="h-6 w-6 sm:h-8 sm:w-8" />
+                <button onClick={() => handleRegister(event.name)}>
+                  <ArrowRightCircle className="h-6 w-6 sm:h-7 sm:w-7 hover:text-black transition" />
+                </button>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+
+      {/* First Confirmation Popup */}
+      {popupVisible && (
+        <ConfirmationPopup
+          eventName={selectedEvent}
+          onClose={handleClosePopup}
+          onConfirm={handleConfirmYes}
+          onCancel={handleClosePopup}
+        />
+      )}
+
+      {/* Second Success Popup */}
+      {detailsVisible && (
+        <RegisterSuccess
+          message="You're Registered!"
+          subMessage={`Thanks for registering for ${selectedEvent}.`}
+          onClose={handleCloseDetails}
+        />
+      )}
+    </section>
   );
 };
 
