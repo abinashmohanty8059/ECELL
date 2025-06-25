@@ -76,24 +76,29 @@ const EventsGrid = () => {
             auto-rows-[minmax(180px,auto)] 
             gap-4"
         >
-          {events.map((event, index) => (
-            <div
-              key={index}
-              className={`rounded-2xl p-4 flex flex-col justify-between items-start ${event.bg} ${event.colSpan}`}
-            >
-              <img
-                src={event.image}
-                alt={event.name}
-                className="rounded-xl w-full h-auto max-h-[220px] object-contain mb-4"
-              />
-              <div className="flex justify-between items-center w-full mt-auto">
-                <h3 className="font-bold text-lg sm:text-xl">{event.name}</h3>
-                <button onClick={() => handleRegister(event.name)}>
-                  <ArrowRightCircle className="h-6 w-6 sm:h-7 sm:w-7 hover:text-black transition" />
-                </button>
-              </div>
-            </div>
-          ))}
+        {events.map((event, index) => (
+    <div
+      key={index}
+      className={`
+        rounded-2xl p-4 flex flex-col justify-between items-start
+        ${event.bg} ${event.colSpan}
+        opacity-60 group-hover:opacity-50 hover:!opacity-100
+        transition duration-300
+      `}
+    >
+      <img
+        src={event.image}
+        alt={event.name}
+        className="rounded-xl w-full h-auto max-h-[220px] object-contain mb-4"
+      />
+      <div className="flex justify-between items-center w-full mt-auto">
+        <h3 className="font-bold text-lg sm:text-xl">{event.name}</h3>
+        <button onClick={() => handleRegister(event.name)}>
+          <ArrowRightCircle className="h-6 w-6 sm:h-7 sm:w-7 hover:text-black transition" />
+        </button>
+      </div>
+    </div>
+  ))}
         </div>
       </div>
 
